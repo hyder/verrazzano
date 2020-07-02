@@ -92,7 +92,10 @@ function install_verrazzano()
       --set clusterOperator.rancherUserName="${TOKEN_ARRAY[0]}" \
       --set clusterOperator.rancherPassword="${TOKEN_ARRAY[1]}" \
       --set clusterOperator.rancherHostname=${RANCHER_HOSTNAME} \
-      --set verrazzanoAdmissionController.caBundle="$(kubectl -n ${VERRAZZANO_NS} get secret verrazzano-validation -o json | jq -r '.data."ca.crt"' | base64 --decode)"
+      --set verrazzanoAdmissionController.caBundle="$(kubectl -n ${VERRAZZANO_NS} get secret verrazzano-validation -o json | jq -r '.data."ca.crt"' | base64 --decode)" \
+      --set configReloaderImage="phx.ocir.io/stevengreenberginc/bfs/configmap-reloader:0.3" \
+      --set nodeExporterImage="phx.ocir.io/stevengreenberginc/bfs/node-exporter:0.18.1-1" \
+      --set fluentdKubernetesDaemonsetImage="phx.ocir.io/stevengreenberginc/bfs/fluentd-kubernetes-daemonset:v1.10.4-oraclelinux-elasticsearch7-1.0"
 
   retries=0
   until [ "$retries" -ge 24 ]
