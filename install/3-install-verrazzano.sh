@@ -95,7 +95,8 @@ function install_verrazzano()
       --set verrazzanoAdmissionController.caBundle="$(kubectl -n ${VERRAZZANO_NS} get secret verrazzano-validation -o json | jq -r '.data."ca.crt"' | base64 --decode)" \
       --set configReloaderImage="phx.ocir.io/stevengreenberginc/bfs/configmap-reloader:0.3" \
       --set nodeExporterImage="phx.ocir.io/stevengreenberginc/bfs/node-exporter:0.18.1-1" \
-      --set fluentdKubernetesDaemonsetImage="phx.ocir.io/stevengreenberginc/bfs/fluentd-kubernetes-daemonset:v1.10.4-oraclelinux-elasticsearch7-1.0"
+      --set fluentdKubernetesDaemonsetImage="phx.ocir.io/stevengreenberginc/bfs/fluentd-kubernetes-daemonset:v1.10.4-oraclelinux-elasticsearch7-1.0" \
+      --set esImage="phx.ocir.io/odx-sre/sauron/elasticsearch-ci:karen-20200630"
 
   retries=0
   until [ "$retries" -ge 24 ]
