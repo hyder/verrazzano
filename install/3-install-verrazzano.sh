@@ -107,7 +107,7 @@ function install_verrazzano()
       --set monitoringOperator.configReloaderImage="phx.ocir.io/stevengreenberginc/bfs/configmap-reloader:0.3" \
       --set verrazzanoOperator.nodeExporterImage="phx.ocir.io/stevengreenberginc/bfs/node-exporter:0.18.1-1" \
       --set verrazzanoOperator.fluentdKubernetesDaemonsetImage="phx.ocir.io/stevengreenberginc/bfs/fluentd-kubernetes-daemonset:v1.10.4-oraclelinux-elasticsearch7-1.0" \
-      --set monitoringOperator.esImage="phx.ocir.io/stevengreenberginc/bfs/elasticsearch:7.6.1-2-watsh" \
+      --set monitoringOperator.esImage="phx.ocir.io/stevengreenberginc/bfs/elasticsearch:7.6.1-80f8609-6" \
       --set verrazzanoOperator.prometheusPusherImage="phx.ocir.io/stevengreenberginc/watsh-prometheus-pusher:1.0.1_6"
 
   retries=0
