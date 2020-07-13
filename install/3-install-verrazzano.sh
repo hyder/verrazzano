@@ -104,11 +104,12 @@ function install_verrazzano()
       --set clusterOperator.rancherPassword="${TOKEN_ARRAY[1]}" \
       --set clusterOperator.rancherHostname=${RANCHER_HOSTNAME} \
       --set verrazzanoAdmissionController.caBundle="$(kubectl -n ${VERRAZZANO_NS} get secret verrazzano-validation -o json | jq -r '.data."ca.crt"' | base64 --decode)" \
-      --set monitoringOperator.configReloaderImage="phx.ocir.io/stevengreenberginc/bfs/configmap-reloader:0.3" \
-      --set verrazzanoOperator.nodeExporterImage="phx.ocir.io/stevengreenberginc/bfs/node-exporter:0.18.1-1" \
-      --set verrazzanoOperator.fluentdKubernetesDaemonsetImage="phx.ocir.io/stevengreenberginc/bfs/fluentd-kubernetes-daemonset:v1.10.4-oraclelinux-elasticsearch7-1.0" \
-      --set monitoringOperator.esImage="phx.ocir.io/stevengreenberginc/bfs/elasticsearch:7.6.1-80f8609-6" \
-      --set verrazzanoOperator.prometheusPusherImage="phx.ocir.io/stevengreenberginc/watsh-prometheus-pusher:1.0.1_6"
+      --set verrazzanoOperator.cohMicroImage="phx.ocir.io/stevengreenberginc/verrazzano/verrazzano-coh-cluster-operator-jenkins:1acdee76f5457db9957ba051c5c2d51886aab1bf"
+      # --set monitoringOperator.configReloaderImage="phx.ocir.io/stevengreenberginc/bfs/configmap-reloader:0.3" \
+      # --set verrazzanoOperator.nodeExporterImage="phx.ocir.io/stevengreenberginc/bfs/node-exporter:0.18.1-1" \
+      # --set verrazzanoOperator.fluentdKubernetesDaemonsetImage="phx.ocir.io/stevengreenberginc/bfs/fluentd-kubernetes-daemonset:v1.10.4-oraclelinux-elasticsearch7-1.0" \
+      # --set monitoringOperator.esImage="phx.ocir.io/stevengreenberginc/bfs/elasticsearch:7.6.1-80f8609-6" \
+      # --set verrazzanoOperator.prometheusPusherImage="phx.ocir.io/stevengreenberginc/watsh-prometheus-pusher:1.0.1_6"
 
   retries=0
   until [ "$retries" -ge 24 ]
