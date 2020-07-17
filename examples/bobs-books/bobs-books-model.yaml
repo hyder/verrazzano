@@ -49,7 +49,7 @@ spec:
       domainCRValues:
         domainUID: bobs-bookstore
         domainHome: /u01/oracle/user_projects/domains/bobs-bookstore
-        image: docker.pkg.github.com/verrazzano/examples/bobs-bookstore-order-manager:0.1.4
+        image: docker.pkg.github.com/verrazzano/examples/bobs-bookstore-order-manager:0.1.4-watsh
         logHome: /u01/oracle/bobs-bookstore/logs
         logHomeEnabled: false
         includeServerOutInPodLog: true
