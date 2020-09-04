@@ -143,6 +143,10 @@ function install_verrazzano()
       --set config.dnsSuffix=${DNS_SUFFIX} \
       --set config.enableMonitoringStorage=true \
       --set verrazzanoOperator.sslVerify=false \
+      --set verrazzanoOperator.imageName=verrazzano-operator-jenkins \
+      --set verrazzanoOperator.imageVersion=66485d1ea1463dd5a698ce01c664b110ec313bec \
+      --set monitoringOperator.imageVersion=v0.0.19 \
+      --set monitoringOperator.esWaitImage=verrazzano-monitoring-instance-eswait:v0.0.19 \
       --set clusterOperator.rancherURL=https://${RANCHER_HOSTNAME} \
       --set clusterOperator.rancherUserName="${token_array[0]}" \
       --set clusterOperator.rancherPassword="${token_array[1]}" \
